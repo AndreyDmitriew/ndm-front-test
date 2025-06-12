@@ -1,54 +1,49 @@
-# React + TypeScript + Vite
+Test task: Table IP routes (React)
+This repository contains the implementation of a test task to create a user interface for displaying a list of IP routes. The primary feature is a table that can be sorted by any column according to specific rules.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+The application is built with React, TypeScript, and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Screenshot 2025-06-12 211823](https://github.com/user-attachments/assets/2bf71db3-1292-46c9-aa7f-24ee0ce44217)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Key Features
+Route Table Display: Renders a list of active IPv4 routes in a clean, tabular format.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Column Sorting: The table can be sorted by any column: "Адрес назначения" (Destination Address), "Шлюз" (Gateway), or "Интерфейс" (Interface).
+Custom Sort Logic:
+The "Адрес назначения" and "Шлюз" columns are sorted by their numerical IP address values, not lexicographically.
+The "Интерфейс" column uses standard string comparison for sorting.
+Component-Based Architecture: The application is broken down into logical components:
+RoutesTable.tsx: A container (or "smart") component that manages all state and sorting logic.
+RoutesDisplay.tsx: A presentational (or "dumb") component responsible only for rendering the UI.
+Typed Codebase: The entire project is written in TypeScript, ensuring type safety and improved developer experience.
+Technology Stack
+Framework: React
+Language: TypeScript
+Build Tool: Vite
+Data: Mock data is used to populate the table, with each route being an object with a defined structure.
+Getting Started
+To get a local copy up and running, follow these simple steps.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Prerequisites
+You need to have Node.js and npm installed on your machine.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Installation & Usage
+Clone the repository
+Bash
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+git clone <your-repository-url>
+Navigate to the project directory
+Bash
+
+cd ndm-front-test
+Install NPM packages
+Bash
+
+npm install
+Run the development server
+Bash
+
+npm run dev
+The application will be available at http://localhost:5173 (or another port if 5173 is in use).
